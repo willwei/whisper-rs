@@ -155,6 +155,11 @@ fn main() {
     let mut config = Config::new(&whisper_root);
 
     config
+        .define("CMAKE_C_FLAGS", "-O3 -arch arm64")
+        .define("CMAKE_CXX_FLAGS", "-O3 -arch arm64")
+        .define("GGML_FORCE_CROSS_COMPILE", "ON")
+        .define("GGML_NATIVE", "OFF")
+        .define("CMAKE_SYSTEM_PROCESSOR", "arm64")
         .profile("Release")
         .define("BUILD_SHARED_LIBS", "OFF")
         .define("WHISPER_ALL_WARNINGS", "OFF")
